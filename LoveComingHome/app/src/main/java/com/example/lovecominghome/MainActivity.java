@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //UI组件初始化与事件绑定
     private void bindViews() {
         txt_topbar = (TextView) findViewById(R.id.txt_topbar);
-        txt_channel = (TextView) findViewById(R.id.txt_channel);
-        txt_message = (TextView) findViewById(R.id.txt_message);
-        txt_better = (TextView) findViewById(R.id.txt_better);
-        txt_setting = (TextView) findViewById(R.id.txt_setting);
+        txt_channel = (TextView) findViewById(R.id.txt_home);
+        txt_message = (TextView) findViewById(R.id.txt_task);
+        txt_better = (TextView) findViewById(R.id.txt_alert);
+        txt_setting = (TextView) findViewById(R.id.txt_comment);
         ly_content = (FrameLayout) findViewById(R.id.ly_content);
 
         txt_channel.setOnClickListener(this);
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction fTransaction = fManager.beginTransaction();
         hideAllFragment(fTransaction);
         switch (v.getId()){
-            case R.id.txt_channel:
+            case R.id.txt_home:
                 setSelected();
                 txt_channel.setSelected(true);
                 if(fg1 == null){
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     fTransaction.show(fg1);
                 }
                 break;
-            case R.id.txt_message:
+            case R.id.txt_task:
                 setSelected();
                 txt_message.setSelected(true);
                 if(fg2 == null){
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     fTransaction.show(fg2);
                 }
                 break;
-            case R.id.txt_better:
+            case R.id.txt_alert:
                 setSelected();
                 txt_better.setSelected(true);
                 if(fg3 == null){
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     fTransaction.show(fg3);
                 }
                 break;
-            case R.id.txt_setting:
+            case R.id.txt_comment:
                 setSelected();
                 txt_setting.setSelected(true);
                 if(mg4 == null){
