@@ -43,11 +43,7 @@
             android:name="com.example.lovecominghome.Activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
 
-            </intent-filter>
         </activity>
 
         <activity
@@ -58,7 +54,11 @@
         <activity
             android:name="com.example.lovecominghome.MapActivity"
             android:label="MapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
 
+            </intent-filter>
         </activity>
 
 
