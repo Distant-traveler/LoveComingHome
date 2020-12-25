@@ -1,4 +1,4 @@
-package com.example.lovecominghome;
+package com.example.lovecominghome.Entity;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,7 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import com.example.lovecominghome.ConvertUtils;
+
+import com.example.lovecominghome.R;
+import com.example.lovecominghome.Utils.ConvertUtils;
 
 
 

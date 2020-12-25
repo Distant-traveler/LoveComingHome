@@ -1,4 +1,4 @@
-package com.example.lovecominghome;
+package com.example.lovecominghome.Utils;
 
 import android.content.Context;
 import android.content.res.Resources;

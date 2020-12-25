@@ -1,8 +1,10 @@
-package com.example.lovecominghome;
+package com.example.lovecominghome.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.lovecominghome.R;
 
 public class ChangeInfomationActivity extends AppCompatActivity {
 

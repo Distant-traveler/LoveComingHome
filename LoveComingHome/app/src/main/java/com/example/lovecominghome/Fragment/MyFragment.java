@@ -1,4 +1,4 @@
-package com.example.lovecominghome;
+package com.example.lovecominghome.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import android.app.Fragment;
+
+import com.example.lovecominghome.R;
 
 public class MyFragment extends Fragment {
     private String content;

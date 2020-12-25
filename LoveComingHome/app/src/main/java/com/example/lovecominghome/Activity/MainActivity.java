@@ -1,4 +1,4 @@
-package com.example.lovecominghome;
+package com.example.lovecominghome.Activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -11,6 +11,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.example.lovecominghome.Fragment.MyFragment;
+import com.example.lovecominghome.R;
+import com.example.lovecominghome.Fragment.UserCenterFragment;
+import com.example.lovecominghome.Fragment.message;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
