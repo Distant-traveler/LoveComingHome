@@ -14,4 +14,16 @@
     <drawable name="clr_normal">#FF4500</drawable>
     <drawable name="clr_pressed">#a44100</drawable>
     <drawable name="item_view_pressed">#808080</drawable>
+
+    <string-array name="ctype">
+        <item>电影</item>
+        <item>图书</item>
+        <item>音乐</item>
+        <item>游戏</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

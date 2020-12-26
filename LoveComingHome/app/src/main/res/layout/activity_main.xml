@@ -30,7 +30,12 @@
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:background="@color/div_white"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+
+            />
+
+
+
 
     </RelativeLayout>
 
@@ -131,6 +136,9 @@
         android:layout_above="@id/div_tab_bar"
         android:id="@+id/ly_content">
 
+
     </FrameLayout>
+
+
 
 </RelativeLayout>

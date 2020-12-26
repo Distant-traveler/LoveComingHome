@@ -5,34 +5,28 @@
 
 
 
+
     <TextView
     android:id="@+id/txt_content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:text="呵呵"
+    android:text="dddddddddd"
     android:textColor="@color/text_yellow"
     android:textSize="20sp"/>
-
     <TextView
-        android:id="@+id/t_content"
+        android:id="@+id/_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="hhhh呵"
+        android:text="dddddddddd"
         android:textColor="@color/text_yellow"
         android:textSize="20sp"/>
 
-    <Button
-        android:id="@+id/btn1"
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="3124"
-        android:textColor="@color/text_yellow"
-/>
-    <EditText
-        android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="4574"/>
+        android:id="@+id/listview"
+        />
     </LinearLayout>

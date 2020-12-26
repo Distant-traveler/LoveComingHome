@@ -26,10 +26,10 @@ import com.baidu.location.LocationClientOption;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.lovecominghome.Fragment.MyFragment;
-import com.example.lovecominghome.R;
+import com.example.lovecominghome.Fragment.FindFragment;
 import com.example.lovecominghome.Fragment.UserCenterFragment;
-import com.example.lovecominghome.Fragment.message;
+import com.example.lovecominghome.Fragment.IndexFragment;
+import com.example.lovecominghome.R;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -45,13 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FrameLayout ly_content;
 
     //Fragment Object
-    private MyFragment fg1,fg2,fg3;
-    private message mg4;
+    private IndexFragment indexFragment;
+    private FindFragment findFragment;
+    private FindFragment mg3,mg4;
     private UserCenterFragment user_center;
     private FragmentManager fManager;
-
-    //TextView locationInfo;
-    //LocationClient mLocationClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fManager = getFragmentManager();
         bindViews();
         txt_home.performClick();   //模拟一次点击，既进去后选择第一项
-
     }
-
 
     //UI组件初始化与事件绑定
     private void bindViews() {
@@ -93,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //隐藏所有Fragment
     private void hideAllFragment(FragmentTransaction fragmentTransaction){
-        if(fg1 != null)fragmentTransaction.hide(fg1);
-        if(fg2 != null)fragmentTransaction.hide(fg2);
-        if(fg3 != null)fragmentTransaction.hide(fg3);
+        if(indexFragment != null)fragmentTransaction.hide(indexFragment);
+        if(findFragment != null)fragmentTransaction.hide(findFragment);
+        if(mg3 != null)fragmentTransaction.hide(mg3);
         if(mg4 != null)fragmentTransaction.hide(mg4);
         if(user_center!=null)fragmentTransaction.hide(user_center);
     }
@@ -109,38 +105,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.txt_home:
                 setSelected();
                 txt_home.setSelected(true);
-                if(fg1 == null){
-                    fg1 = new MyFragment("第一个Fragment");
-                    fTransaction.add(R.id.ly_content,fg1);
+                if(indexFragment == null){
+                    indexFragment = new IndexFragment();
+                    fTransaction.add(R.id.ly_content,indexFragment);
+
                 }else{
-                    fTransaction.show(fg1);
+                    fTransaction.show(indexFragment);
                 }
                 break;
             case R.id.txt_task:
                 setSelected();
                 txt_task.setSelected(true);
-                if(fg2 == null){
-                    fg2 = new MyFragment("第二个Fragment");
-                    fTransaction.add(R.id.ly_content,fg2);
+                if(findFragment == null){
+                    findFragment = new FindFragment();
+                    fTransaction.add(R.id.ly_content,findFragment);
+
                 }else{
-                    fTransaction.show(fg2);
+                    fTransaction.show(findFragment);
                 }
                 break;
             case R.id.txt_alert:
                 setSelected();
                 txt_alert.setSelected(true);
-                if(fg3 == null){
-                    fg3 = new MyFragment("第三个Fragment");
-                    fTransaction.add(R.id.ly_content,fg3);
+                if(mg3 == null){
+                    mg3 = new FindFragment();
+                    fTransaction.add(R.id.ly_content,mg3);
+
                 }else{
-                    fTransaction.show(fg3);
+                    fTransaction.show(mg3);
+
                 }
                 break;
             case R.id.txt_comment:
                 setSelected();
                 txt_comment.setSelected(true);
                 if(mg4 == null){
-                    mg4 = new message();
+                  mg4 = new FindFragment();
                     fTransaction.add(R.id.ly_content,mg4);
 
                     System.out.println("jhfjf");
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txt_my.setSelected(true);
                 if (user_center==null){
                     user_center=new UserCenterFragment();
-                    fTransaction.replace(R.id.ly_content,user_center);
+                    fTransaction.add(R.id.ly_content,user_center);
                 }else {
                     fTransaction.show(user_center);
                 }
@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         fTransaction.commit();
     }
-
 
 
 
