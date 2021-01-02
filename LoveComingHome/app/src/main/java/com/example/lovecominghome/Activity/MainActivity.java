@@ -1,16 +1,30 @@
 package com.example.lovecominghome.Activity;
 
+import android.Manifest;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.lovecominghome.Fragment.MyFragment;
 import com.example.lovecominghome.R;
@@ -36,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private UserCenterFragment user_center;
     private FragmentManager fManager;
 
+    //TextView locationInfo;
+    //LocationClient mLocationClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fManager = getFragmentManager();
         bindViews();
         txt_home.performClick();   //模拟一次点击，既进去后选择第一项
+
     }
+
 
     //UI组件初始化与事件绑定
     private void bindViews() {
@@ -122,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txt_comment.setSelected(true);
                 if(mg4 == null){
                     mg4 = new message();
-                    fTransaction.replace(R.id.ly_content,mg4);
+                    fTransaction.add(R.id.ly_content,mg4);
 
                     System.out.println("jhfjf");
                 }else{
@@ -143,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         fTransaction.commit();
     }
+
 
 
 
