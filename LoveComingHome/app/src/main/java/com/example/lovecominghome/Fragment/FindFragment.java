@@ -1,8 +1,11 @@
 package com.example.lovecominghome.Fragment;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -10,7 +13,10 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import android.app.Fragment;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.example.lovecominghome.Activity.DetailActivity;
 import com.example.lovecominghome.R;
@@ -21,10 +27,27 @@ import java.util.List;
 import java.util.Map;
 
 public class FindFragment extends Fragment {
+    ActionBar actionBar; //声明ActionBar
+
     private String content;
     public FindFragment() {
 
     }
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//
+//        setHasOptionsMenu(true);
+//
+//        getActivity().setTitle("寻人");
+//    }
+
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        menu.clear();
+//        super.onCreateOptionsMenu(menu, inflater);
+//
+//    }
 
 
     @Override
@@ -32,12 +55,15 @@ public class FindFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_find,container,false);
 //        TextView txt_content = view.findViewById(R.id.txt_content);
 //        txt_content.setText(content);
+
+
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
 
         int[] miss_imageid = new int[]{R.mipmap.miss_1,R.mipmap.miss_2,R.mipmap.miss_3};
         String[] miss_title = new String[]{"求助","帮忙","寻人"};
@@ -75,6 +101,21 @@ public class FindFragment extends Fragment {
                 startActivity(intent);
                 System.out.println(id);
                 Toast.makeText(getActivity(), map.get("name").toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+        Spinner spinner = (Spinner)getActivity().findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String result = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getActivity(),result,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }

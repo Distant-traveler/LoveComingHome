@@ -1,6 +1,7 @@
 package com.example.lovecominghome.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,5 +20,10 @@ public class DetailActivity extends AppCompatActivity {
         String name = bundle.getString("name");
         TextView tv_name = findViewById(R.id.name);
         tv_name.setText(name);
+
+        //判断父activitiyshifou 是否为空
+        if (NavUtils.getParentActivityName(DetailActivity.this)!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);//显示向左的导航图标
+        }
     }
 }

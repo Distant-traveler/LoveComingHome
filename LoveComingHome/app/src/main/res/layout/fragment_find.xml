@@ -4,24 +4,22 @@
     android:layout_height="match_parent">
 
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:orientation="horizontal">
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:entries="@array/ctype"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner1"/>
+    </LinearLayout>
 
 
-    <TextView
-    android:id="@+id/txt_content"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    android:text="dddddddddd"
-    android:textColor="@color/text_yellow"
-    android:textSize="20sp"/>
-    <TextView
-        android:id="@+id/_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:text="dddddddddd"
-        android:textColor="@color/text_yellow"
-        android:textSize="20sp"/>
 
 
     <ListView
@@ -29,4 +27,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/listview"
         />
+
     </LinearLayout>

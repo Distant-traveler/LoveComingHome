@@ -1,6 +1,7 @@
 package com.example.lovecominghome.Activity;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.pm.PackageManager;
@@ -12,6 +13,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
@@ -58,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txt_home.performClick();   //模拟一次点击，既进去后选择第一项
     }
 
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_main,menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+
     //UI组件初始化与事件绑定
     private void bindViews() {
         txt_topbar = (TextView) findViewById(R.id.txt_topbar);
@@ -98,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         FragmentTransaction fTransaction = fManager.beginTransaction();
         hideAllFragment(fTransaction);
+
         switch (v.getId()){
             case R.id.txt_home:
                 setSelected();
@@ -120,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else{
                     fTransaction.show(findFragment);
                 }
+
                 break;
             case R.id.txt_alert:
                 setSelected();

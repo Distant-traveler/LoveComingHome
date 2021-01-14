@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+
 import com.example.lovecominghome.Activity.ChangeInfomationActivity;
 import com.example.lovecominghome.Entity.ItemView;
 import com.example.lovecominghome.R;
@@ -15,7 +17,13 @@ public class UserCenterFragment extends Fragment{
     public UserCenterFragment() {
 
     }
-
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        // 调用该方法后才会显示Menu
+//        getActivity().setTitle("助爱回家");
+//        setHasOptionsMenu(true);
+//    }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user_center,container,false);
         ItemView change_information = view.findViewById(R.id.change_information);

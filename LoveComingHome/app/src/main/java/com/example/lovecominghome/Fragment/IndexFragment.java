@@ -1,8 +1,12 @@
 package com.example.lovecominghome.Fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +24,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.lovecominghome.Activity.DetailActivity;
+import com.example.lovecominghome.Activity.TakePhotoActivity;
 import com.example.lovecominghome.R;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -27,6 +32,8 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,25 +48,30 @@ public class IndexFragment extends Fragment {
     private  ArrayList<Integer> list_path;
     private ArrayList<String> list_title;
 
+
+    //定义一个保存图片的File变量
+    private File currentImageFile = null;
     public IndexFragment(){}
 //    public IndexFragment(String content) {
 //        this.content = content;
 //    }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // 调用该方法后才会显示Menu
-        setHasOptionsMenu(true);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-System.out.println("显示目录");
-        inflater.inflate(R.menu.menu_main, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-
-    }
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        // 调用该方法后才会显示Menu
+//        setHasOptionsMenu(true);
+//        getActivity().setTitle("助爱回家");
+//    }
+//
+//
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//System.out.println("显示目录");
+//        inflater.inflate(R.menu.menu_main, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -179,6 +191,39 @@ System.out.println("显示目录");
             }
         });
 
+        ImageView take_photo = (ImageView) getActivity().findViewById(R.id.take_photo);
+        take_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TakePhotoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+//            //在按钮点击事件处写上这些东西，这些是在SD卡创建图片文件的:
+//            @Override
+//            public void onClick(View v) {
+//                File dir = new File(Environment.getExternalStorageDirectory(),"pictures");
+//                if(dir.exists()){
+//                    dir.mkdirs();
+//                }
+//                currentImageFile = new File(dir,System.currentTimeMillis() + ".jpg");
+//                if(!currentImageFile.exists()){
+//                    try {
+//                        currentImageFile.createNewFile();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//                Intent it = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                it.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(currentImageFile));
+//                startActivityForResult(it, Activity.DEFAULT_KEYS_DIALER);
+//            }
+//        });
+
+
 
 
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -206,6 +251,7 @@ System.out.println("显示目录");
 //        });
 //        getListView().setOnItemClickListener(this);
     }
+
 
 
 //    class MyListener implements AdapterView.OnItemClickListener {
