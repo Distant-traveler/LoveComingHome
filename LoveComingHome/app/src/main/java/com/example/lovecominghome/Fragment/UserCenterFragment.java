@@ -2,6 +2,7 @@ package com.example.lovecominghome.Fragment;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,13 @@ public class UserCenterFragment extends Fragment{
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.change_information:
-                        Intent intent = new Intent(getActivity(), ChangeInfomationActivity.class);
+                        /*Intent intent = new Intent(getActivity(), ChangeInfomationActivity.class);
+                        startActivity(intent);*/
+                        /*Uri uri = Uri.parse("geo:39.9,116.3");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);*/
+                        Uri uri = Uri.parse("http://maps.google.com/maps?f=d&saddr=39.9 116.3&daddr=31.2 121.4");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         break;
                     default:
